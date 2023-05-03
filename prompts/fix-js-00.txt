@@ -1,0 +1,11 @@
+Find mistakes in this javascript function and rewrite it correctly:
+
+function outputAllLetters() {
+  let alpha = 'abcdefghijklmnopqrstuvwxyz';
+  for (let i = 0; i < alpha.length; i++) {
+    console[`log(${alpha[i]})`];
+  }
+}
+
+Right now this function displays: nothing;
+Don't explain the code, just provide corrected version.

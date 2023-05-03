@@ -1,0 +1,26 @@
+===== Information Source Tool ====
+
+1. SemanticFinder -
+   download from cdn the script and the base
+   change it to work in nodejs
+
+2. Find more sane html -> text conversion (preferably with tables into csv extraction)
+
+3. Create an Information Source Object.
+to cache and return relevent information from sources in
+increment manner (.next() function).
+
+4. Make it tokenizable in future
+
+
+====== PROMPT ANTI-FADING REFRESH ====
+
+After two observations repeat the prompt and those two observations.
+
+
+
+REFERENCE:
+
+* https://huggingface.co/philschmid/all-MiniLM-L6-v2-optimum-embeddings
+* https://huggingface.co/Xenova/transformers.js
+

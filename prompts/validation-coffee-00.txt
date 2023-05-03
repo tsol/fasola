@@ -1,0 +1,2 @@
+Here is the task for you: find all the bloggers interested in coffee and give me a list.
+Split the task into actions.

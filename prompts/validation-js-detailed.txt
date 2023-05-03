@@ -1,0 +1,8 @@
+### Human:
+write a javascript script to output all leters of alphabet.
+No explanation required! Just write the code. After last line of the code -
+stop answering and end conversation. Format of answer:
+
+### Assistant:
+Here's the JavaScript code to output all letters of alphabet:
+

@@ -1,0 +1,1 @@
+answer with just code. no extra words. write a javascript script to output all leters of alphabet.

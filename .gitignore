@@ -1,0 +1,8 @@
+node_modules/
+llama.cpp/
+models/
+sandbox/
+z
+*~
+.env
+
