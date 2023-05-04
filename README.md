@@ -2,7 +2,7 @@
 
 Free, Autonomous Self-Orchestrating Local Agent.
 
-## For whom it is?
+## Who is it for?
 
 - If you would like to play around with Autonomous GPT Agents
 - If you don't like the idea that agent can empty your API balance
@@ -57,12 +57,11 @@ GOOGLE_SEARCH_CX=
 
 ## TODO:
 
-### Modify Core information source iterator tool
+#### Modify Core information source iterator tool
 
-Factory Search tool which keeps dependencies between queries -> text-query-iterator
-(possibly caching)
+Factory Search tool which keeps dependencies between queries -> text-query-iterator (possibly caching)
 
-### AskAgent tool improvement
+#### AskAgent tool improvement
 
 Anti fading: After two observations repeat the prompt and those two observations.
 
@@ -71,46 +70,45 @@ Human impersonation breaker - break and repeat init prompt with another example 
 Too long without formatted response breaker - words count threshold
 to restart with another example.
 
-### Tools framework
+#### Tools framework
 
 Interface for tools with description and use examples.
-( Tags, Autoreload, semantic search )
+( Tags, Autoreload, semantic search for tool )
 
 Tool factory that returns the most appropriate tool for the query.
 
 Template standard.
-- Examples array
+- Several examples array
 - Short tool reminder
-- Tool description?
+- Tool description
 
-### Core tools to create
+#### Core tools to create
 
 * Task splitter
 * Tool selector
-* Variable tool: storage memory
-  - variable listing, prioritizing, garbage collection
-  - variable manipulation: concat, filter
+* Variables tool: storage memory
+* Variables listing, prioritizing, garbage collection
+* Variables manipulation: concat, filter
 
-* TOOL-PIPING tool. (Subtask -> Tool using chain)
-  "I need to use tool X, give result to tool Y, store result as Z"
+#### TOOL-PIPING tool. (Subtask -> Tool using chain)
+ "I need to use tool X, give result to tool Y, store result as Z"
+#### Regex data extractor Toolc(extract rows of data, lists by template)
+ for fetching table data without passing it through prompt
+#### Export tool (csv)
+ export to csv
+#### Tool creation tool.
+ creation, eslint, execution, testing, add to toolbox
+#### Orchestrator core class
+ tools pipe executor
+#### Models benchmark auto-testing
+ you/me/apples validation test
+ javaScript creation test
+ tool usage test
 
-* Regex data extractor Toolc(extract rows of data, lists by template)
-
-### Export tool (csv)
-
-7. Tool creation tool.
-- creation, eslint, execution, testing, add to toolbox
-
-### Orchestrator core class
-
-### Models benchmark auto-testing
-
-1. you/me/apples, 2. JavaScript, 3. tool usage
-
-### Next.js frontend
-
-### Auto-installation
-
+#### Next.js frontend
+ not a priority
+#### Auto-installation
+ also. JS geeks we are after
 
 ## These are the projects that we directly base on or get inspiration from
 
