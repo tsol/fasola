@@ -1,9 +1,6 @@
 import { TextResourceSearchFunction, TextResourceSearchResult } from './interfaces/text-resource.interface';
 import { convert } from 'html-to-text';
 
-// import { Readability } from '@mozilla/readability';
-// import { JSDOM } from 'jsdom';
-
 import axios from 'axios';
 import dotenv from 'dotenv';
 
@@ -11,11 +8,6 @@ dotenv.config();
 
 const GOOGLE_SEARCH_API_KEY: string | undefined = process.env.GOOGLE_SEARCH_API_KEY;
 const GOOGLE_SEARCH_CX: string | undefined = process.env.GOOGLE_SEARCH_CX;
-
-// function removeScriptsAndStyles(html: string) {
-//   const regex = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>|<style\b[^<]*(?:(?!<\/style>)<[^<]*)*<\/style>/gi;
-//   return html.replace(regex, " ");
-// }
 
 const parseSite = async (url: string): Promise<TextResourceSearchResult> => {
   try {
@@ -29,7 +21,7 @@ const parseSite = async (url: string): Promise<TextResourceSearchResult> => {
 
     const content = convert(html).replace(/\[.+?\]/g, ' ').trim();
 
-    console.log('\n\n****** CONTENT: ', content);
+    // console.log('\n\n****** CONTENT: ', content);
 
     // const doc = new JSDOM(removeScriptsAndStyles(html), { url });
     // const reader = new Readability(doc.window.document);

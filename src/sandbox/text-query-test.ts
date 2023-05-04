@@ -1,6 +1,5 @@
-import { TextQueryIterator } from './src/text-query-iterator';
-import { fromGoogle } from './src/search-google';
-
+import { TextQueryIterator } from '../text-query-iterator';
+import { fromGoogle } from '../search-google';
 
 async function askAgent(question: string)
 {
@@ -20,10 +19,10 @@ async function askAgent(question: string)
     result.push(searchResponse.value);
   }
 
-  console.log(result);
+  return result;
 }
 
-askAgent('current tennis world champion').then((answer) => {
+askAgent('current tennis world champion 2023').then((answer) => {
   console.log('\nANSWER', answer);
 });
 

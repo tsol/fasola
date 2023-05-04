@@ -41,6 +41,7 @@ export class TextQueryIterator implements Iterator<string> {
     }
     this.searchBlocks.sort((a, b) => b.score - a.score);
     this.currentIndex = 0;
+    //console.log('MAX/MIN score:', this.searchBlocks[0].score, this.searchBlocks[this.searchBlocks.length - 1].score);
   }
 
   next(): IteratorResult<string> {

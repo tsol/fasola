@@ -1,7 +1,10 @@
 import {spawn} from 'child_process';
 
-const LLAMA_CPP = './llama.cpp/main';
-const NEXT_TOKEN_TIMEOUT_MS = 600_000;
+import dotenv from 'dotenv';
+dotenv.config();
+
+const LLAMA_CPP_EXEC: string = process.env.LLAMA_CPP_EXEC || './llama.cpp/main';
+const LLM_IDLE_KILL_TIMEOUT: number = parseInt(process.env.LLM_IDLE_KILL_TIMEOUT || '600000');
 
 export type ActionResult =  Record<string, string> | null;
 export type StopActionParser = (string) => ActionResult;
@@ -14,8 +17,8 @@ export class LLMProcess {
     
     constructor(model : string, params: string) {
         this.params = params;
-        this.executablePath = LLAMA_CPP;
-        this.modelPath = `./models/${model}.bin`; 
+        this.executablePath = LLAMA_CPP_EXEC;
+        this.modelPath = model; 
     }
 
     public open(): void {
@@ -74,7 +77,7 @@ export class LLMProcess {
                         resolve({
                             action: 'TIMEOUT'
                         });
-                    }, NEXT_TOKEN_TIMEOUT_MS);
+                    }, LLM_IDLE_KILL_TIMEOUT);
                 }
                 
  

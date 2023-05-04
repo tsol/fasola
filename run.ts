@@ -2,8 +2,13 @@ import { ActionResult, LLMProcess, StopActionParser } from './src/llm-process';
 import { TextQueryIterator } from './src/text-query-iterator';
 import { fromGoogle } from './src/search-google';
 
-// const llmp = new LLMProcess('wizardLM-7B.ggml.q5_1', '-i --interactive-first --temp 0.8 -c 2048');
-const llmp = new LLMProcess('ggml-vic13b-q5_1', '-i --interactive-first --temp 0.8 -c 4096');
+import dotenv from 'dotenv';
+dotenv.config();
+
+const LLM_MODEL: string = process.env.LLM_MODEL || './models/ggml-vic13b-q5_1.bin';
+const LLM_PARAM_STRING: string = process.env.LLM_PARAM_STRING || '-i --interactive-first --temp 0.8 -c 4096';
+
+const llmp = new LLMProcess(LLM_MODEL, LLM_PARAM_STRING);
 
 process.on('SIGINT', () => {
   console.log('Received SIGINT signal.');
@@ -121,7 +126,7 @@ async function askAgent(question: string)
 
       const nextSearch = searchQuery.next();
 
-      if (nextSearch && nextSearch.value > 0) {
+      if (nextSearch && nextSearch.value.length > 0) {
         prompt = `### Human:\n*OBSERVATION:\n` + nextSearch.value + '\n'
         + `\n### Assistant:\n*THOUGHT: If i know the answer to the question "${question}" then i need to *ANSWER it. If observation is unclear i need to *SEARCH more.\n`;
       }
@@ -138,7 +143,7 @@ async function askAgent(question: string)
   }
 }
 
-askAgent('Who is the current tennis world champion?').then((answer) => {
+askAgent('What is most recent Russian movie about space').then((answer) => {
   console.log('\nANSWER', answer);
   llmp.close();
 });

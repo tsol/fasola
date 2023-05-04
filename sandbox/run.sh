@@ -7,15 +7,17 @@
 #PROMPT=validation-apples
 #PROMPT=validation-coffee-00
 #PROMPT=search-example
-PROMPT=answer-find-files
+#PROMPT=answer-find-files
+PROMPT=space-movie
 
 #MODEL=../models/ggml-vic13b-q4_1.bin
-MODEL=../models/ggml-vic13b-q5_1.bin
+#MODEL=../models/ggml-vic13b-q5_1.bin
 #MODEL=../models/ggml-vic13b-uncensored-q8_0.bin
 #MODEL=../models/wizardLM-7B.ggml.q5_1.bin
+MODEL=../models/stable-vicuna-13B.ggml.q5_1.bin
 
-PROMPT_FILE=../prompts/${PROMPT}.txt
-cd llama.cpp
+PROMPT_FILE=../sandbox/prompts/${PROMPT}.txt
+cd ../llama.cpp
 
 ./main --temp 0.8 -c 2048 -m $MODEL -f ${PROMPT_FILE}
 
@@ -37,8 +39,7 @@ cd llama.cpp
 
 #./main -i --interactive-first -r "### Human:" --temp 0.2 -c 2048 -n -1 --ignore-eos --repeat_penalty 1.2 --instruct -m $MODEL -f ${PROMPT_FILE}
 
-
-./main --interactive-first --temp 0.7 -c 1024 --repeat_penalty 1.2 -m $MODEL
+#./main --interactive-first --temp 0.7 -c 1024 --repeat_penalty 1.2 -m $MODEL
 #./main -i --temp 0.2 -c 1024 --repeat_penalty 1.2 --instruct -m $MODEL -f ${PROMPT_FILE}
 
 #./main -m ./models/ggml-vicuna-13b-4bit.bin -n 256 --repeat_penalty 1.1 --color -i -r "### Human:" -f ${PROMPT_FILE}

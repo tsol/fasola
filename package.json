@@ -8,18 +8,12 @@
     "start": "tsx run.ts"
   },
   "dependencies": {
-    "@llama-node/llama-cpp": "^0.0.33",
-    "@mozilla/readability": "^0.4.4",
     "@xenova/transformers": "^1.4.3",
     "axios": "^1.4.0",
-    "cheerio": "^1.0.0-rc.12",
     "dotenv": "^16.0.3",
     "html-to-text": "^9.0.5",
-    "jsdom": "^21.1.1",
-    "llama-node": "^0.0.33",
     "node-fetch": "^3.3.1",
     "onnxruntime-node": "^1.14.0",
-    "ts-node": "^10.9.1",
     "tsx": "^3.12.7",
     "typescript": "^4.9.5"
   },
