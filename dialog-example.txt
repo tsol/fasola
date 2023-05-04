@@ -1,0 +1,105 @@
+
+> fasola-js@1.0.0 start
+> tsx run.ts
+
+OPEN_LLM_PROCESS:  ./llama.cpp/main -i --interactive-first --temp 0.8 -c 4096 -m ./models/ggml-vic13b-q5_1.bin
+LLMProcess opened.
+
+Assistant is a large language model trained by OpenAI.
+
+TOOLS
+------
+Assistant can ask the user to use tools to look up information that may be helpful in answering the
+users original question. The tools the human can use are:
+
+1. "SEARCH" use to find any information in internet.
+
+RESPONSE FORMAT INSTRUCTIONS
+----------------------------
+
+When responding to me, please output a response in one of two formats:
+
+**Option #1:**
+Use this if you want the human to use SEARCH tool.
+*ACTION: SEARCH "text you need to find"
+
+**Option #2:**
+Use this if you want to respond directly to the human.
+*ACTION: ANSWER "your answer"
+
+If you know the answer to the question, you can respond directly to the human. If you do not know the answer, you can ask the human to use SEARCH tool.
+
+EXAMPLE
+--------
+
+### Human: When Jason Booba was born?
+
+### Assistant:
+
+*THOUGHT: I need to search information about person Jason Booba and find out when he was born and reply with a date.
+*ACTION: SEARCH "Jason Booba was born"
+
+### Human:
+*OBSERVATION:
+Jasom Gimmek was born pale like an ant and never seen boobs.
+
+### Assistant:
+*THOUGHT: Observation has no mentioning of Jason Booba or his birth date. I Need to seach MORE information.
+*ACTION: SEARCH "Jason Booba was born"
+
+### Human:
+*OBSERVATION:
+Jason Booba is a man who has lived an adventurous life full of twists and turns. From an early age, he displayed a keen sense of curiosity and a thirst for knowledge that would stay with him throughout his life. As a young man, he traveled extensively, exploring different cultures and learning from the people he met along the way.
+
+### Assistant:
+*THOUGHT: There is no information about the birth date of Jason Booba. I cant answer the question yet. Need to seach next block of text.
+*ACTION: SEARCH "Jason Booba's birth date"
+
+### Human:
+*OBSERVATION:
+In his early years, Jason Booba showed a keen interest in music and began playing the guitar at the age of 12. He was born 1 of april 1954 in a small vilage near Brooklyn.   He spent much of his youth performing at local talent shows and honing his skills as a musician. By the time he was in his early twenties, Jason had formed his own band and began playing gigs at various clubs and venues in and around New York City.
+
+### Assistant:
+*THOUGHT: I know the answer he was born 1 of april 1954.
+*ACTION: ANSWER "1 of april 1954"
+
+### Human: What is most recent Russian movie about space?
+
+ ### Assistant:
+*THOUGHT: I need to search for information about the most recent Russian movie about space.
+*ACTION: SEARCH "most recent Russian movie about space"
+PARSED_ACTION: { action: 'SEARCH', param: 'most recent Russian movie about space' }
+Parsing site: https://www.cnn.com/2023/03/08/europe/the-challenge-movie-russia-space-scn-intl-scli/index.html
+Parsing site: https://www.npr.org/2023/03/09/1162120350/russian-movie-the-challenge-is-the-first-to-be-filmed-in-space
+Parsing site: https://www.cnn.com/2021/10/16/world/russian-film-crew-return-to-earth-scn/index.html
+Parsing site: https://www.nytimes.com/2021/09/16/world/europe/russia-movie-space.html
+Parsing site: https://en.wikipedia.org/wiki/The_Challenge_(2023_film)
+Parsing site: https://www.politico.eu/article/russia-tom-cruise-race-first-movie-shot-space-the-challenge/
+Parsing site: https://www.bbc.com/news/world-europe-58944660
+Parsing site: https://screenrant.com/the-challenge-movie-trailer-video-space-russia/
+Parsing site: https://en.wikipedia.org/wiki/Sputnik_(film)
+Parsing site: https://www.ypradio.org/2023-03-09/russian-movie-the-challenge-is-the-first-to-be-filmed-in-space
+### Human:
+*OBSERVATION:
+films * Russian disaster films * International Space Station * Space tourism * Roscosmos * IMAX films * Moon in film * Mars in film * Films set in the 2020s * Films set on spacecraft * Films set in outer space * Courtroom films * Films about mother–daughter relationships * Films shot in Moscow * Films shot in Moscow Oblast * Films shot in Russia * Films shot in Kazakhstan Hidden categories: * CS1 Russian-language sources (ru) * Wikipedia semi-protected pages * Articles with short description * Short description is different from Wikidata * Use British English from September 2021 * Use dmy dates from April 2023 * Template film date with 2 release dates * Articles with hCards * Articles containing Russian-language text * Wikipedia articles in need of updating from April 2023 * All Wikipedia articles in need of updating * Wikipedia articles needing clarification from March 2023 * Commons category link is on Wikidata * IMDb ID same as Wikidata * This page was last edited on 30 April 2023, at 10:10 (UTC). * Text is
+
+### Assistant:
+*THOUGHT: If i know the answer to the question "What is most recent Russian movie about space" then i need to *ANSWER it. If observation is unclear i need to *SEARCH more.
+
+*ACTION: SEARCH "most recent Russian movie about space"
+PARSED_ACTION: { action: 'SEARCH', param: 'most recent Russian movie about space' }
+### Human:
+*OBSERVATION:
+VIDEO THUMBNAIL russia space film Russia sent a professional film crew to space. See first clips from the movie 01:01 - Source: CNN Sign up for CNN’s Wonder Theory science newsletter. Explore the universe with news on fascinating discoveries, scientific advancements and more . CNN — The space race has expanded to new frontiers in recent years, moving into business, tourism … and now cinema. Russian film makers on Tuesday released a trailer for “The Challenge,” which became the first ever feature film to be shot in space in 2021. The trailer outlines the movie’s plot: A surgeon, Zhenya, played by Russian actress Yulia Peresild, has to perform heart surgery on a sick cosmonaut in space because he is unable to return to Earth for treatment. The patient is portrayed by real-life cosmonaut Oleg Novitskiy. Yulia Peresild, Anton Shkaplerov and Klim Shipenko pose for a portrait. Yulia Peresild, Anton Shkaplerov and Klim Shipenko pose for a portrait. Shutterstock Produced by the Yellow, Black and White studio and Channel
+
+### Assistant:
+*THOUGHT: If i know the answer to the question "What is most recent Russian movie about space" then i need to *ANSWER it. If observation is unclear i need to *SEARCH more.
+
+
+*ACTION: ANSWER "The Challenge, a film shot in space in 2021 and feature Yulia Peresild, Oleg Novitskiy and directed by Orlov"
+PARSED_ACTION: {
+  action: 'ANSWER',
+  param: 'The Challenge, a film shot in space in 2021 and feature Yulia Peresild, Oleg Novitskiy and directed by Orlov'
+}
+
+ANSWER The Challenge, a film shot in space in 2021 and feature Yulia Peresild, Oleg Novitskiy and directed by Orlov
