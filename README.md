@@ -24,7 +24,17 @@ Now it can use search tool to search the internet and give answers. War even on 
 
 ## Goals and Plans
 
-I want FASOLA to be able not only to work at the level of BabyAGI but also make an accent on creating the simplest tools using JavaScript to solve tasks and populate the tool database.
+A framework with clear tool structure, human readable templates, template variants for different levels of model stupidity. Automatic model
+fetching from hugginface. Humman community will optimize each tool best model, prompt and runtime (time till end result) hence making collection of relatively stupid and slow models to perform somewhat usefull. So each tool might run it's own model and prompt logic to perform only single one task.
+
+A set of tools will be dynamicly linked by an orchestrator. Special core tool: tool selector using semantic similarity will help orchestrator to select the best tool for the subtask of main goal.
+
+Variables tool will help orchistrator to store results in memory, not having to run data through the prompt each time.
+
+In the end i want FASOLA to be able not only to work at the level of BabyAGI but also make an accent on creating the simplest tools using JavaScript to solve tasks and populate the tool database.
+
+P.S. We deliberately do not use Pinecone or store data in tokenized form or embedding based database. Our main goal is not 'fast' or 'optimal' but rather human readable and understandable.
+
 
 ### To use the program, you'll need:
 
