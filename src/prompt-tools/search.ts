@@ -83,31 +83,33 @@ export default class ToolSearch implements PromptTool {
   modelParams = '--temp 0.8 -c 4096';
 
   actionParser = stringActionParser;
-  actionExecutor = searchActionExecutor;
+  actionExecutor = this.searchActionExecutor;
 
   searchQuery: TextQueryIterator | null = null;
 
-}
+  async searchActionExecutor(action: string, param: string) {
 
-async function searchActionExecutor(action: string, param: string) {
-
-  if (action === 'ANSWER') return answer(param);
-  if (action === 'SEARCH') {
-
-    if (!this.searchQuery) {
-      this.searchQuery = new TextQueryIterator(fromGoogle, 0.3, 1024, param);
-      await this.searchQuery.init();
+    if (action === 'ANSWER') return answer(param);
+    if (action === 'SEARCH') {
+  
+      if (!this.searchQuery) {
+        this.searchQuery = new TextQueryIterator(fromGoogle, 0.3, 1024, param);
+        await this.searchQuery.init();
+      }
+  
+      const nextSearch = this.searchQuery.next();
+  
+      if (nextSearch && nextSearch.value.length > 0) {
+        return nextPrompt(this.nextPrompt, nextSearch.value);
+      }
+  
+      return error('No more search results');
     }
-
-    const nextSearch = this.searchQuery.next();
-
-    if (nextSearch && nextSearch.value.length > 0) {
-      return nextPrompt(this.nextPrompt, nextSearch.value);
-    }
-
-    return error('No more search results');
+  
+    return error('Unknown action: ' + action);
+  
   }
-
-  return error('Unknown action: ' + action);
+  
 
 }
+

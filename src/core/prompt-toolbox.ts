@@ -36,7 +36,6 @@ export async function usePromptTool(toolName: string, param: string) {
     // eslint-disable-next-line no-constant-condition
     while (true) {
       console.log(prompt);
-
       const result = await llmp.prompt(prompt, tool.actionParser);
 
       console.log('\nPARSED_ACTION:', result);
