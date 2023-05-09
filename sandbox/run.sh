@@ -8,13 +8,15 @@
 #PROMPT=validation-coffee-00
 #PROMPT=search-example
 #PROMPT=answer-find-files
-PROMPT=space-movie
+#PROMPT=space-movie
+PROMPT=validation-js-bitcoin
 
 #MODEL=../models/ggml-vic13b-q4_1.bin
 #MODEL=../models/ggml-vic13b-q5_1.bin
 #MODEL=../models/ggml-vic13b-uncensored-q8_0.bin
 #MODEL=../models/wizardLM-7B.ggml.q5_1.bin
-MODEL=../models/stable-vicuna-13B.ggml.q5_1.bin
+#MODEL=../models/stable-vicuna-13B.ggml.q5_1.bin
+MODEL=../models/wizard-vicuna-13B.ggml.q5_1.bin
 
 PROMPT_FILE=../sandbox/prompts/${PROMPT}.txt
 cd ../llama.cpp

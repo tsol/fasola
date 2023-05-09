@@ -46,7 +46,7 @@ P.S. We deliberately do not use Pinecone or store data in tokenized form or embe
 
    This model used as a core subtool to create embeddings and search.
 
-2. Download `ggml-vic13b-q5_1.bin` file from https://huggingface.co/eachadea/ggml-vicuna-13b-1.1 (can be done using download.py file because the whole repository is huge!)
+2. Download `ggml-vic13b-q5_1.bin` file from https://huggingface.co/eachadea/ggml-vicuna-13b-1.1 (can be done using download-model.py or download-model.js file because the whole repository is huge!)
 
    This is the orchestrator model - the one responsible for the main logic.
    You can use any model in ggml format used by llama.cpp. Fact to note

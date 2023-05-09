@@ -30,18 +30,19 @@ export class TextQueryIterator implements Iterator<string> {
   async init() {
     this.resources = await this.searchFn(this.query, MAX_RESOURCE_COUNT);
     this.semanticSearch = await getSemanticSearch();
+    let text = '';
     for (const r of this.resources) {
-      const blocks = await this.semanticSearch.getRelevantBlocks(
-        r.text,
-        this.query,
-        this.maxCharsPerBlock,
-        this.threshold
-      );
-      this.searchBlocks = this.searchBlocks.concat(blocks);
+      text += r.text + '\n';
     }
+    this.searchBlocks = await this.semanticSearch.getRelevantBlocks(
+      text,
+      this.query,
+      this.maxCharsPerBlock,
+      this.threshold
+    );
     this.searchBlocks.sort((a, b) => b.score - a.score);
     this.currentIndex = 0;
-    //console.log('MAX/MIN score:', this.searchBlocks[0].score, this.searchBlocks[this.searchBlocks.length - 1].score);
+    console.log('MAX/MIN score:', this.searchBlocks[0].score, this.searchBlocks[this.searchBlocks.length - 1].score);
   }
 
   next(): IteratorResult<string> {

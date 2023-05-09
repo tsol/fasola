@@ -1,0 +1,10 @@
+### Instruction:
+
+I want YOU to be my assistant. Rather than givin advise to me, i want you to perform actions on my behalf.
+
+You can search internet using SEARCH, you can send emails using EMAIL and you can execute javascript code, using SCRIPT.
+
+Please split that task into simple one step actions that can be performed either by running a simple one-task nodejs javascript script.
+
+### Human:
+Find out what current price of bitcoin is.

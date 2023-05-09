@@ -7,7 +7,7 @@ const LLAMA_CPP_EXEC: string = process.env.LLAMA_CPP_EXEC || './llama.cpp/main';
 const LLM_IDLE_KILL_TIMEOUT: number = parseInt(process.env.LLM_IDLE_KILL_TIMEOUT || '600000');
 
 export type ActionResult =  Record<string, string> | null;
-export type StopActionParser = (string) => ActionResult;
+export type StopActionParser = (text: string) => ActionResult;
 
 export class LLMProcess {
     private llm: ReturnType<typeof spawn> | null = null;
@@ -16,7 +16,7 @@ export class LLMProcess {
     private modelPath: string;
     
     constructor(model : string, params: string) {
-        this.params = params;
+        this.params = '-i --interactive-first '+params;
         this.executablePath = LLAMA_CPP_EXEC;
         this.modelPath = model; 
     }
@@ -48,7 +48,9 @@ export class LLMProcess {
         if (this.llm === null || this.llm.stdin === null) {
             throw new Error("llm is not initialized.");
         }
-        
+
+        prompt = addSlashes(prompt);
+
         this.llm.stdin.write(prompt + "\n");
     
         return new Promise((resolve, reject) => {
@@ -99,3 +101,8 @@ export class LLMProcess {
         });
     }
 }
+
+function addSlashes(prompt) {
+    return prompt.split('\n').join('\\'+"\n");
+}
+

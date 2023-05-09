@@ -22,7 +22,7 @@ async function askAgent(question: string)
   return result;
 }
 
-askAgent('current tennis world champion 2023').then((answer) => {
+askAgent('current price of bitcoin').then((answer) => {
   console.log('\nANSWER', answer);
 });
 
